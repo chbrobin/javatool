@@ -56,6 +56,9 @@ public class SshTool {
         String serverIndexHtml = FileUtil.readFileString(SshTool.class.getClassLoader().getResourceAsStream("server.html"));
         String hostInfoTableHtml = HostInfoTableUtil.genHtml(hostInfoMap);
         serverIndexHtml = serverIndexHtml.replaceAll("XXXXXXXX", hostInfoTableHtml);
+        String pid = ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
+        serverIndexHtml = serverIndexHtml.replaceAll("########", pid);
+
         // create http web server
         SimpleHttpServer simpleHttpServer = new SimpleHttpServer(Integer.valueOf(port), serverIndexHtml);
         new Thread(simpleHttpServer).start();
@@ -72,9 +75,5 @@ public class SshTool {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        String name = ManagementFactory.getRuntimeMXBean().getName();
-        String pid = name.split("@")[0];
-        System.out.println("pid is " + pid);
     }
 }
