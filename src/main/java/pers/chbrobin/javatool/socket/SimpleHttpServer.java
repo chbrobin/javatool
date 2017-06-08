@@ -27,7 +27,6 @@ public class SimpleHttpServer implements Runnable {
             e.printStackTrace();
             System.exit(1);
         }
-        new Thread(this).start();
         System.out.println("Http Server Running Port:" + port);
     }
 

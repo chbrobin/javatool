@@ -17,6 +17,7 @@ public class FileUtil {
                 sb.append(s);
             }
             reader.close();
+            inputStream.close();
             return sb.toString();
         } catch(IOException e) {
             e.printStackTrace();

@@ -65,10 +65,6 @@ public class HttpServerUtil {
             out.println();// 根据 HTTP 协议, 空行将结束头信息
 
             out.println(fileString);
-
-            out.close();
-
-            //文件下载完后关闭socket流
             out.close();
         } catch (Exception e) {
             e.printStackTrace();
