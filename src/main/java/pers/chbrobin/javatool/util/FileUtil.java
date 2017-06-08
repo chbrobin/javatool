@@ -1,6 +1,7 @@
 package pers.chbrobin.javatool.util;
 
 import java.io.*;
+import java.nio.Buffer;
 
 /**
  * Created by Administrator on 2017/6/7 0007.
@@ -15,10 +16,21 @@ public class FileUtil {
             while ((s = reader.readLine()) != null) {
                 sb.append(s);
             }
+            reader.close();
             return sb.toString();
         } catch(IOException e) {
             e.printStackTrace();
         }
         return "";
+    }
+
+    public static void writeFileString(File file, String content) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            writer.write(content);
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

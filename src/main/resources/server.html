@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,17 +13,17 @@ XXXXXXXX
     $(function() {
         $(".submitForm").click(function() {
             var dataHost = $(this).attr("data-host");
+            var data = $("#proxyForm_" + dataHost).serialize();
             $.ajax({
                 type: 'post',
                 url: '/proxy',
-                data: $("#proxyForm_" + dataHost).serialize(),
+                data: data,
                 success: function (data) {
-                    $("#result").html(data);
+                    $("#result_" + dataHost).html(data);
                 }
             });
         });
     });
 </script>
-<!-- 百度统计 -->
 </body>
 </html>

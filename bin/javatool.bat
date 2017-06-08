@@ -1,0 +1,1 @@
+java -cp commons-lang-2.5.jar;commons-collections-3.2.1.jar;javatool-1.0-SNAPSHOT.jar;jsch-0.1.54.jar pers.chbrobin.javatool.tool.SshTool

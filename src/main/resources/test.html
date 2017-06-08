@@ -1,0 +1,40 @@
+
+<!DOCTYPE html><html><head>    <meta charset="UTF-8">    <meta http-equiv="X-UA-Compatible" content="IE=Edge">    <title>绾夸笂鎺ュ彛璋冪敤宸ュ叿</title>    <script src="jquery.js"></script></head><body><h1>绾夸笂鎺ュ彛璋冪敤宸ュ叿</h1>
+
+<form method="post" target="_blank" id="proxyForm_iwjw-agent-sale-app1">
+    <input type="hidden" name="host" value="http://127.0.0.1:9997">
+    <table>
+        <tr>
+            <td>host</td>
+            <td>http://127.0.0.1:9997==>iwjw-agent-sale-app1:80</td>
+        </tr>
+        <tr><td>action</td><td><input type="text" name="action" value="" width="200px;"/></td></tr>
+        <tr><td>param</td><td><textarea name="param" rows="5"></textarea></td></tr>
+        <tr><td>operate</td><td><input type="button" class="submitForm" data-host="iwjw-agent-sale-app1" value="execute"></td></tr>
+        <tr><td>result</td><td><span id="result"></span></td></tr>
+    </table></from><br/><br/>
+    <form method=post target="_blank" id="proxyForm_iwjw-oa-soa1">
+        <input type="hidden" name="host" value="http://127.0.0.1:9998">
+        <table>
+            <tr>
+                <td>host</td>
+                <td>http://127.0.0.1:9998==>iwjw-oa-soa1:80</td>
+            </tr>
+            <tr><td>action</td><td><input type="text" name="action" value="" width="200px;"/></td></tr>
+            <tr><td>param</td><td><textarea name="param" rows="5"></textarea></td></tr>
+            <tr><td>operate</td><td><input type="button" class="submitForm" data-host="iwjw-oa-soa1" value="execute"></td></tr>
+            <tr><td>result</td><td><span id="result"></span></td></tr>
+        </table></from><br/><br/>
+        <form method=post target="_blank" id="proxyForm_iwagentsoa2-app1">
+            <input type="hidden" name="host" value="http://127.0.0.1:9999">
+            <table>
+                <tr>
+                    <td>host</td>
+                    <td>http://127.0.0.1:9999==>iwagentsoa2-app1:80</td>
+                </tr>
+                <tr><td>action</td><td><input type="text" name="action" value="" width="200px;"/></td></tr>
+                <tr><td>param</td><td><textarea name="param" rows="5"></textarea></td></tr>
+                <tr><td>operate</td><td><input type="button" class="submitForm" data-host="iwagentsoa2-app1" value="execute"></td></tr>
+                <tr><td>result</td><td><span id="result"></span></td></tr>
+            </table></from><br/><br/>
+            <script>    $(function() {        $(".submitForm").click(function() {            var dataHost = $(this).attr("data-host");            alert(dataHost);            var data = $("#proxyForm_" + dataHost).serialize();            alert(data);            return false;            $.ajax({                type: 'post',                url: '/proxy',                data: data,                success: function (data) {                    $("#result").html(data);                }            });        });    });</script></body></html>
