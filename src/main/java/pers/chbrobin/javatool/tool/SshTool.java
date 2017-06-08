@@ -1,5 +1,6 @@
 package pers.chbrobin.javatool.tool;
 
+import com.jcraft.jsch.JSchException;
 import org.apache.commons.collections.map.HashedMap;
 import pers.chbrobin.javatool.socket.SimpleHttpServer;
 import pers.chbrobin.javatool.util.*;
@@ -34,7 +35,13 @@ public class SshTool {
         }
 
         // create ssh session
-        SshSessionUtil.createSshSession(password);
+        try {
+            SshSessionUtil.createSshSession(password);
+        } catch (JSchException e) {
+            e.printStackTrace();
+            System.out.println("create ssh session error");
+            System.exit(0);
+        }
 
         // fetch ssh tunnel config
         String port = ConfigProperties.getProperty("ssh_config_http_server_port");
