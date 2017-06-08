@@ -1,0 +1,1 @@
+java -cp ../target/javatool-1.0-SNAPSHOT.jar;../lib/commons-lang-2.5.jar;../lib/commons-collections-3.2.1.jar;../lib/jsch-0.1.54.jar pers.chbrobin.javatool.tool.SshTool
