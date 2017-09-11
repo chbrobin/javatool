@@ -4,26 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <title>线上接口调用工具</title>
-    <script src="jquery.js"></script>
 </head>
 <body>
 <h1>线上接口调用工具(########)</h1>
 XXXXXXXX
-<script>
-    $(function() {
-        $(".submitForm").click(function() {
-            var dataHost = $(this).attr("data-host");
-            var data = $("#proxyForm_" + dataHost).serialize();
-            $.ajax({
-                type: 'post',
-                url: '/proxy',
-                data: data,
-                success: function (data) {
-                    $("#result_" + dataHost).html(data);
-                }
-            });
-        });
-    });
-</script>
 </body>
 </html>
